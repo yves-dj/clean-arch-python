@@ -1,5 +1,3 @@
-from imp import init_builtin
-from mimetypes import init
 import uuid
 import json
 
