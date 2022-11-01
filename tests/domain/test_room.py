@@ -1,7 +1,9 @@
 from imp import init_builtin
 from mimetypes import init
 import uuid
+import json
 
+from serializers.room import RoomJsonEncoder
 from domain.room import Room
 
 def test_room_model_init():
@@ -63,3 +65,30 @@ def test_room_model_comparison():
     room2 = Room.from_dict(init_dict)
 
     assert room1 == room2
+
+
+
+def test_serialize_domain_room():
+    code = uuid.uuid4()
+
+    room = Room(
+        code,
+        size=200,
+        price=10,
+        longitude=-0.09998975,
+        latitude=51.75436293
+    )
+
+    expected_json = f"""
+        {{
+            "code": "{code}",
+            "size": 200,
+            "price": 10,
+            "longitude": -0.09998975,
+            "latitude": 51.75436293
+        }}
+    """
+
+    json_room = json.dumps(room, cls=RoomJsonEncoder)
+
+    assert json.loads(json_room) == json.loads(expected_json)
