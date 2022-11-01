@@ -1,8 +1,8 @@
 import uuid
 import json
 
-from serializers.room import RoomJsonEncoder
-from domain.room import Room
+from rentomatic.serializers.room import RoomJsonEncoder
+from rentomatic.domain.room import Room
 
 def test_room_model_init():
     code = uuid.uuid4()

@@ -1,7 +1,7 @@
 import pytest
 
-from domain.room import Room
-from repository.memrepo import MemRepo
+from rentomatic.domain.room import Room
+from rentomatic.repository.memrepo import MemRepo
 
 
 
