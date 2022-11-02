@@ -1,6 +1,6 @@
 from flask import Flask
 
-from application.rest import Room
+from application.rest import room
 
 
 
