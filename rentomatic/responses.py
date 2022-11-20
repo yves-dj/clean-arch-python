@@ -14,10 +14,12 @@ class ResponseSuccess:
     def __bool__(self):
         return True
 
+
+
 class ResponseFailure:
     def __init__(self, type_, message):
         self.type = type_
-        self.message = message
+        self.message = self._format_message(message)
 
     @property
     def value(self):

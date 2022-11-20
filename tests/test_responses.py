@@ -53,3 +53,14 @@ def test_response_failure_from_empty_invalid_request():
 
     assert bool(response) == False
     assert response.type == ResponseTypes.PARAMETERS_ERROR
+
+def test_response_failure_from_invalid_request_with_errors(request):
+    request = RoomListInvalidRequest()
+    request.add_error("path", "is mandatory")
+    request.add_error("path", "can't be blank")
+
+    response = build_response_from_invalid_request(request)
+
+    assert bool(response) is False
+    assert response.type == ResponseTypes.PARAMETERS_ERROR
+    assert response.message == "path: is mandatory\npath: can't be blank"
