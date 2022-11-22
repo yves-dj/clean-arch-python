@@ -1,4 +1,7 @@
-# Rentomatic
+# Clean Architectures in Python
+A code-along repo where I follow the book: Clean Architectures in Python, written by Leonardo Giordani. Details about the book are found below. 
+
+## Rentomatic
 
 A demo implementation of a clean architecture in Python.
 
